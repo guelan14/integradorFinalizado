@@ -1,6 +1,6 @@
 <?php
 // Configuración de conexión a la base de datos
-$conexion = new mysqli("localhost", "root", "", "pixfood");
+$conexion = new mysqli("localhost", "root", "1234", "pixfood");
 
 // Verificar la conexión
 if ($conexion->connect_error) {
