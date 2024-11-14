@@ -1,0 +1,53 @@
+[
+  {
+    "name": "Pastel de Chocolate",
+    "image": "/images/special-plate1.jpg",
+    "alt": "Delicioso Pastel de Chocolate",
+    "description": "Un pastel de chocolate rico y húmedo hecho con el mejor cacao. Ideal para los amantes del chocolate.",
+    "ingredients": [
+      "Harina",
+      "Azúcar",
+      "Cacao en polvo",
+      "Huevos",
+      "Mantequilla",
+      "Levadura en polvo",
+      "Extracto de vainilla"
+    ],
+    "category": "Postre",
+    "youtubeLink": "https://www.youtube.com/watch?v=example1"
+  },
+  {
+    "name": "Cheesecake de Fresa",
+    "image": "/images/special-plate2.jpg",
+    "alt": "Cheesecake con fresas frescas",
+    "description": "Un cheesecake cremoso con una base de galleta crujiente y una cobertura de fresas frescas.",
+    "ingredients": [
+      "Galletas",
+      "Mantequilla",
+      "Queso crema",
+      "Azúcar",
+      "Huevos",
+      "Crema agria",
+      "Fresas"
+    ],
+    "category": "Postre",
+    "youtubeLink": "https://www.youtube.com/watch?v=example2"
+  },
+  {
+    "name": "Brownie con Nueces",
+    "image": "/images/special-plate3.jpg",
+    "alt": "Delicioso brownie con nueces",
+    "description": "Brownie denso y chocolatoso, con trozos de nueces para un extra de textura y sabor.",
+    "ingredients": [
+      "Chocolate",
+      "Mantequilla",
+      "Azúcar",
+      "Huevos",
+      "Harina",
+      "Nueces",
+      "Sal"
+    ],
+    "category": "Postre",
+    "youtubeLink": "https://www.youtube.com/watch?v=example3"
+  }
+]

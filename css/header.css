@@ -1,0 +1,120 @@
+/*-------------------------------HEADER*/
+
+.navbar {
+  background-color: rgba(51, 51, 51, 0.5);
+  color: white;
+  padding: 1rem 1rem 1rem 4rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  width: 100%;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
+}
+
+.logo:hover {
+  transform: scale(1.03);
+  color: #ff4c4c;
+  transition: color 0.3s ease;
+}
+
+/* Estilo de enlaces */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li {
+  margin: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 400;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ff4c4c;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #ff4c4c;
+  transform: scaleX(0); /* Línea invisible inicialmente */
+  transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1); /* Aparece la línea en hover */
+}
+
+/* Ocultar el ícono de hamburguesa en pantallas grandes */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: white;
+}
+
+/* Estilos móviles */
+@media (max-width: 580px) {
+  /* Cambiar la dirección de la flexbox a columna en pantallas pequeñas */
+  .navbar-container {
+    flex-direction: row;
+  }
+
+  /* Ocultar los enlaces de navegación por defecto */
+  .nav-links {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    height: 100%;
+    width: 70%;
+    background-color: rgba(51, 51, 51, 0.9);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Mostrar ícono de hamburguesa en pantallas pequeñas */
+  .hamburger {
+    display: block;
+  }
+
+  /* Cuando se activa el menú de hamburguesa */
+  .nav-links.active {
+    transform: translateX(0);
+  }
+
+  /* Estilo para los enlaces del menú hamburguesa en vertical */
+  .nav-links li {
+    margin: 1rem 0;
+  }
+}

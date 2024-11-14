@@ -1,0 +1,640 @@
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to bottom, #2c2c2c, #4c0303);
+}
+
+.titulo-delivery {
+  align-content: center;
+  align-items: center;
+}
+
+#table-info {
+  font-size: 1.8rem;
+}
+
+.super-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 75rem;
+  padding: 4.5rem 1rem 1rem 1rem;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 90%;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+#search-input {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+}
+
+#search-button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+}
+
+#search-button:hover {
+  background-color: #0056b3;
+}
+
+.menu-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.tab {
+  flex: 1;
+  padding: 1rem;
+  background-color: #888888;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 2rem;
+  color: #333333;
+  transition: background-color 0.3s ease;
+  margin: 0.2rem;
+}
+
+.tab.active,
+.tab:hover {
+  background-color: #ff4c4c;
+  color: #ffffff;
+}
+
+.menu-container {
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.menu-item {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  text-align: center;
+  width: 97%;
+  transition: 0.2s;
+  display: flex;
+  margin: 0.4rem;
+}
+
+.menu-items::-webkit-scrollbar {
+  width: 15px;
+}
+
+.menu-items::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.menu-items::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+  border: 2px solid #f5f5f5;
+}
+
+.menu-items::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.menu-item:hover {
+  transform: scale(1.02);
+}
+
+.item-info {
+  text-align: start;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.item-image {
+  display: flex;
+  width: 15%;
+  padding: 0.5rem;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  background-color: #7b3939;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 8px 0 0 8px;
+}
+
+.item-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.menu-item .item-info .description p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #555;
+}
+
+.menu-item .item-info h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-right: 1rem;
+  padding-bottom: 0.2rem;
+}
+
+.menu-item .item-info .icons {
+  margin-top: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px;
+}
+
+.button-container p {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.menu-container button {
+  font-size: small;
+  border: none;
+  cursor: pointer;
+}
+
+.order {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+  flex: 1;
+  height: 100%;
+}
+
+.order-header h1 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #333333;
+}
+
+#cart {
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  padding: 1rem;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+#cart p {
+  font-size: 1rem;
+  font-weight: lighter;
+}
+
+#cart h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #5c6661;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.cart-item {
+  margin-bottom: 0.5rem;
+}
+
+#cart-items {
+  margin-bottom: 3rem;
+  font-weight: 800;
+}
+
+#cart-total {
+  display: flex;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+#cart-total ul {
+  list-style-type: none;
+}
+
+.order-header p {
+  margin: 0;
+  color: #888888;
+}
+
+.order-items {
+  border-top: 1px solid #f7f7f7;
+  border-bottom: 1px solid #f7f7f7;
+  margin: 2rem 0;
+  padding: 1rem 0;
+}
+
+.order-summary {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #333333;
+}
+
+.order-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.cancel-order {
+  background-color: black;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 300;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.send-order {
+  background-color: green;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 300;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: 0.2s;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.cancel-order:hover,
+.send-order:hover {
+  opacity: 0.5;
+  transform: scale(1.02);
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+}
+
+#search-input {
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  color: #aaa;
+  font-size: 1.2rem;
+  pointer-events: none;
+}
+
+.map-container h3 {
+  text-align: center;
+  padding: 2rem;
+}
+
+.item-controls .btn-plus,
+.item-controls .btn-minus {
+  padding: 2px;
+  font-size: 16px;
+  margin: 0px;
+  cursor: pointer;
+  border: none;
+  background-color: #c4c4c4; /* Color de fondo para btn-plus */
+}
+
+.btn-plus,
+.btn-minus {
+  padding: 5px 10px;
+  font-size: 16px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn-minus:hover {
+  background-color: #e43b3b;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada al hacer hover */
+  cursor: pointer;
+}
+
+.btn-plus {
+  background-color: #4caf50; /* Color de fondo para btn-plus */
+}
+
+.btn-plus:hover {
+  background-color: #79d279; /* Color más claro al hacer hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada al hacer hover */
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ff1f1f;
+}
+
+.call-waiter-btn {
+  background-color: #f80a0a;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.call-waiter-btn:hover {
+  background-color: #7b2106;
+}
+
+#call-waiter-message {
+  color: #4caf50;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.none {
+  display: none;
+}
+
+.notifications-container {
+  position: fixed;
+  bottom: 6rem;
+  right: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Espacio entre notificaciones */
+  z-index: 1000;
+}
+
+.notification {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.notification.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.notification.added {
+  background-color: #4caf50; /* Verde */
+}
+
+.notification.removed {
+  background-color: #f44336; /* Rojo */
+}
+
+.subtotal-container {
+  display: none;
+}
+
+/* Estilos para el contenedor del modal */
+/* Estilos para el contenedor del modal */
+#modal {
+  position: absolute;
+  top: 100%;
+  /* Se posicionará justo debajo del campo de búsqueda */
+  left: 0;
+  width: 100%;
+  /* Ajusta según el ancho deseado del modal */
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  z-index: 100;
+  display: none;
+  /* Se muestra u oculta con JavaScript */
+  padding: 10px;
+}
+
+/* Opcional: Estilo para el elemento de cada resultado en el modal */
+#modal div {
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+#modal div:last-child {
+  border-bottom: none;
+  /* Quita el borde inferior del último elemento */
+}
+
+/* Media Queries para pantallas de hasta 500px */
+@media (max-width: 700px) {
+  .menu-items {
+    overflow: hidden;
+  }
+
+  .order {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1);
+    flex: 1;
+    height: 100%;
+  }
+
+  .subtotal-container {
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos: total a la izquierda, botón a la derecha */
+    align-items: center; /* Centra verticalmente los elementos */
+    padding: 1rem 2rem;
+    background-color: #f6f6f6; /* Fondo claro para el footer */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra para separar del contenido superior */
+    position: fixed; /* Fija el footer */
+    bottom: 0; /* Alinea el footer al fondo de la pantalla */
+    left: 0; /* Alinea el footer al borde izquierdo */
+    width: 100%; /* Asegura que el footer ocupe todo el ancho de la pantalla */
+    z-index: 1000; /* Se asegura de que el footer esté sobre otros elementos */
+  }
+
+  .total {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .total-amount {
+    color: #4caf50; /* Color verde para el total */
+  }
+
+  .btn-cart {
+    background-color: #4caf50; /* Botón verde */
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+  }
+
+  .btn-cart:hover {
+    background-color: #45a049; /* Color más oscuro al hacer hover */
+    transform: scale(1.05); /* Efecto de agrandamiento al hacer hover */
+  }
+
+  .item-info {
+    text-align: start;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .item-image {
+    display: flex;
+    width: 15%;
+    padding: 0.5rem;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    background-color: #7b3939;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px 0 0 8px;
+  }
+
+  .item-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  .menu-item .item-info .description p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #555;
+  }
+
+  .menu-item .item-info h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-right: 1rem;
+    padding-bottom: 0.2rem;
+  }
+
+  .menu-item .item-info .icons {
+    margin-top: 10px;
+  }
+
+  .super-container {
+    padding: 1rem;
+    padding-top: 4rem;
+    padding-bottom: 8rem;
+    height: auto; /* Ajustar altura para permitir contenido flexible */
+  }
+
+  .item-image {
+    display: none;
+  }
+
+  .container {
+    flex-direction: column; /* Cambiar la dirección del flex para apilar elementos verticalmente */
+  }
+
+  .menu-nav {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%; /* Hacer que el menú ocupe todo el ancho disponible */
+    margin-right: 0; /* Eliminar margen derecho para que ocupe el 100% del ancho */
+  }
+
+  .order {
+    display: none;
+    width: 100%; /* Hacer que el área de pedidos ocupe todo el ancho disponible */
+    margin-top: 1rem; /* Añadir margen superior para separar el menú del área de pedidos */
+  }
+
+  .menu-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .order-summary,
+  #cart-total,
+  .order-actions {
+    font-size: 1rem;
+    font-weight: 100; /* Ajustar el tamaño de fuente para pantallas pequeñas */
+  }
+
+  .order-header h1 {
+    font-size: 1.5rem; /* Ajustar el tamaño de fuente del título del área de pedidos */
+  }
+}

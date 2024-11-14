@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: black;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    /* Cambia el color según tu preferencia */
+    padding: 1rem 2rem;
+}
+
+.navbar-title {
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    flex-grow: 0;
+    /* Permite centrar el título */
+}
+
+.navbar-links {
+    display: flex;
+    gap: 1.5rem;
+    /* Espacio entre enlaces */
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+    color: #ffe600;
+    /* Color al pasar el mouse */
+}

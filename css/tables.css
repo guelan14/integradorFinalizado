@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+  background-color: black;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: white;
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.tables {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url(../images/tables-background.avif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tables::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+
+.tables > * {
+  position: relative;
+  z-index: 1;
+}
+
+.tables-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 1rem;
+  max-width: 60%;
+  padding: 2rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.table {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  border: none;
+}
+
+.table .table-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.table:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+.occupied img {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* Media Queries para Responsividad */
+
+/* Para pantallas pequeñas como móviles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .tables-container {
+    max-width: 90%;
+    padding: 1rem;
+  }
+
+  .table .table-number {
+    font-size: 0.8rem;
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .tables-container {
+    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+  }
+
+  .table .table-number {
+    font-size: 0.7rem;
+  }
+}
+
+/* Para pantallas grandes como tablets o desktops */
+@media (min-width: 1024px) {
+  .tables-container {
+    max-width: 60%; /* Mantén el tamaño original */
+  }
+
+  .table .table-number {
+    font-size: 0.9rem;
+  }
+}

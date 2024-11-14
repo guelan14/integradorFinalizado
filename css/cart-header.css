@@ -1,0 +1,50 @@
+.navbar-container {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  background-color: #333333;
+  padding-left: 1rem;
+  padding: 1rem;
+  padding-left: 2rem;
+}
+
+.back-arrow {
+  font-size: 24px;
+  color: #ffffff;
+  display: inline-flex;
+  text-decoration: none;
+  position: relative; /* Necesario para el efecto de movimiento */
+  transition: color 0.3s ease, transform 0.3s ease; /* Suaviza el cambio de color y movimiento */
+}
+
+.back-arrow i {
+  display: inline-block;
+  transition: transform 0.3s ease; /* Suaviza el movimiento del ícono */
+}
+
+.back-arrow:hover {
+  color: #ff4c4c; /* Cambia el color al pasar el cursor */
+}
+
+.back-arrow::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #ff4c4c;
+  transform: scaleX(0); /* Inicialmente la línea no es visible */
+  transition: transform 0.3s ease;
+}
+
+.back-arrow:hover::after {
+  transform: scaleX(1); /* Hace que la línea aparezca cuando se hace hover */
+}
+
+.back-arrow i {
+  display: inline-block;
+}

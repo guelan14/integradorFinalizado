@@ -1,0 +1,145 @@
+Create database pixfood; 
+
+use pixfood;
+
+-- Tabla para los elementos del menú
+CREATE TABLE menu_items (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    image VARCHAR(255) DEFAULT 'default.jpeg',
+	category ENUM('entradas', 'principales', 'postres', 'bebidas') NOT NULL,    
+    price DECIMAL(10, 2) NOT NULL,
+	activo BOOL default true,
+    description VARCHAR(255)
+);
+
+-- Tabla para las mesas
+CREATE TABLE tables (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    status ENUM('occupied', 'free') NOT NULL,
+    activo BOOL default true
+);
+
+-- Tabla para los pedidos
+CREATE TABLE orders (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    table_id BIGINT,
+    type ENUM('delivery', 'pickup', 'local' ) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('pending', 'paid') NOT NULL,
+    FOREIGN KEY (table_id) REFERENCES tables(id)
+);
+
+-- Tabla para los artículos de los pedidos
+CREATE TABLE order_items (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    order_id BIGINT,
+    food_id BIGINT,
+    quantity INT NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES orders(id),
+    FOREIGN KEY (food_id) REFERENCES menu_items(id)
+);
+
+select * from menu_items;
+
+DELIMITER $$
+
+CREATE TRIGGER after_order_update
+AFTER UPDATE ON orders
+FOR EACH ROW
+BEGIN
+    IF NEW.status = 'paid' THEN
+        UPDATE tables
+        SET status = 'free'
+        WHERE id = NEW.table_id;  -- table_id está relacionado con orders
+    END IF;
+END $$
+
+DELIMITER ;
+
+
+INSERT INTO menu_items (name, image, category, price, description) VALUES
+  ('Alitas de Pollo', 'default.jpeg', 'entradas', 8.99, 'Jugosas alitas de pollo marinadas y cocinadas a la perfección, acompañadas de salsa a elegir.'),
+  ('Rollos de Primavera', 'default.jpeg', 'entradas', 7.49, 'Deliciosos rollos fritos rellenos de verduras frescas y especias, servidos con salsa agridulce.'),
+  ('Bruschetta', 'default.jpeg', 'entradas', 6.99, 'Tostadas de pan cubiertas con una mezcla de tomate, albahaca y ajo, rociadas con aceite de oliva.'),
+  ('Pan de Ajo', 'default.jpeg', 'entradas', 4.99, 'Pan crujiente con una generosa capa de mantequilla de ajo y perejil, horneado hasta dorarse.'),
+  ('Champiñones Rellenos', 'default.jpeg', 'entradas', 9.49, 'Champiñones frescos rellenos de una mezcla sabrosa de queso y hierbas, gratinados al horno.'),
+  ('Palitos de Mozzarella', 'default.jpeg', 'entradas', 8.49, 'Bastones de queso mozzarella empanizados y fritos, servidos con salsa marinara.'),
+  ('Filete a la Parrilla', 'default.jpeg', 'principales', 18.99, 'Filete de carne de alta calidad, cocinado a la parrilla a su gusto, acompañado de guarniciones.'),
+  ('Salteado de Verduras', 'default.jpeg', 'principales', 12.99, 'Mezcla vibrante de verduras frescas salteadas en una salsa ligera y servidas con arroz.'),
+  ('Espaguetis Carbonara', 'default.jpeg', 'principales', 14.99, 'Pasta espaguetis en una cremosa salsa de huevo, queso parmesano, panceta y pimienta negra.'),
+  ('Pollo a la Parmesana', 'default.jpeg', 'principales', 15.99, 'Pechuga de pollo empanizada y cubierta con salsa marinara y queso parmesano, horneada hasta dorarse.'),
+  ('Tacos de Carne', 'default.jpeg', 'principales', 11.99, 'Tacos rellenos de carne sazonada, acompañados de cebolla, cilantro y salsa fresca.'),
+  ('Salmón a la Parrilla', 'default.jpeg', 'principales', 19.99, 'Filete de salmón fresco, a la parrilla, con un toque de limón y hierbas, acompañado de verduras.'),
+  ('Limonada', 'default.jpeg', 'bebidas', 3.99, 'Refrescante bebida de limón recién exprimido, endulzada y servida fría.'),
+  ('Té Helado', 'default.jpeg', 'bebidas', 2.99, 'Té negro frío con un toque de limón, ideal para refrescarse en un día caluroso.'),
+  ('Coca Cola', 'default.jpeg', 'bebidas', 2.49, 'Clásica bebida gaseosa, ideal para acompañar cualquier plato.'),
+  ('Jugo de Naranja', 'default.jpeg', 'bebidas', 3.49, 'Jugo natural de naranja, lleno de sabor y vitamina C.'),
+  ('Agua Mineral', 'default.jpeg', 'bebidas', 1.99, 'Agua mineral fresca, ideal para hidratarse.'),
+  ('Smoothie', 'default.jpeg', 'bebidas', 4.99, 'Bebida espesa y cremosa a base de frutas frescas y yogurt, disponible en varios sabores.'),
+  ('Tarta de Chocolate', 'default.jpeg', 'postres', 5.99, 'Deliciosa tarta de chocolate con una base crujiente y una rica capa de ganache de chocolate.'),
+  ('Tarta de Manzana', 'default.jpeg', 'postres', 4.99, 'Tarta tradicional de manzana con una corteza dorada y relleno de manzanas especiadas.'),
+  ('Cheesecake', 'default.jpeg', 'postres', 6.49, 'Cheesecake suave y cremoso, con una base de galleta y cobertura de frutas.'),
+  ('Tiramisu', 'default.jpeg', 'postres', 6.99, 'Postre italiano de capas de bizcochos empapados en café y mascarpone.'),
+  ('Brownies', 'default.jpeg', 'postres', 3.99, 'Brownies de chocolate fudgy con trozos de nueces, perfectos para los amantes del chocolate.'),
+  ('Panna Cotta', 'default.jpeg', 'postres', 5.49, 'Delicada panna cotta de vainilla, servida con un coulis de frutas frescas.');
+  
+  INSERT INTO tables (id, status) VALUES
+(1, 'occupied'),
+(2, 'free'),
+(3, 'free'),
+(4, 'occupied'),
+(5, 'free'),
+(6, 'occupied'),
+(7, 'free'),
+(8, 'occupied');
+
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
+    password VARCHAR(255),
+    role ENUM('admin', 'user') NOT NULL,
+    activo BOOLEAN DEFAULT TRUE,        -- true: activo, false: inactivo
+    fecha_alta DATETIME DEFAULT CURRENT_TIMESTAMP,  -- Fecha de alta (inicio)
+    fecha_baja DATETIME               -- Fecha de baja (si se da de baja o despide)
+);
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+	password VARCHAR(255),
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    birth_date DATE NOT NULL,
+    role VARCHAR(50) NOT NULL,
+    activo BOOLEAN DEFAULT TRUE,        -- true: activo, false: inactivo
+    fecha_alta DATETIME DEFAULT CURRENT_TIMESTAMP,  -- Fecha de alta (inicio)
+    fecha_baja DATETIME             -- Fecha de baja (si se da de baja o despide)
+);
+
+DELIMITER $$
+
+CREATE TRIGGER set_fecha_baja_before_update
+BEFORE UPDATE ON users
+FOR EACH ROW
+BEGIN
+    -- Si el campo 'activo' cambia de TRUE a FALSE
+    IF OLD.activo = TRUE AND NEW.activo = FALSE THEN
+        SET NEW.fecha_baja = NOW();  -- Establece la fecha de baja
+    END IF;
+END $$
+
+DELIMITER ;
+INSERT INTO users (username, password, first_name, last_name, birth_date, role) VALUES 
+('admin1', '$2y$10$E9dGURp1sQ9g7zKKJNUmQeO4VbVbd5o9tNzZ3/O5p6cV9asF4w9FG', 'John', 'Doe', '1980-01-15', 'dios'),
+('admin2', '$2y$10$5.uYZXJfZBsv1HEh7hbZPe.DubvG3sBPaZRNP8Hr1YXgyN1VrVcKa', 'Jane', 'Smith', '1985-03-22', 'cantinero'),
+('user1', '$2y$10$dJ1.CJbPHewiPjUzSpLZbOpEOV7rA3GfexwlOX3eOeD0Yw4v8u2.u', 'Alice', 'Brown', '1992-07-12', 'portero'),
+('user2', '$2y$10$tZKl7ZFbW7X1Yd93u/U4/OXpzL48Uz.A3D85r1lO9.X3P2uH2x/XK', 'Bob', 'White', '1995-11-04',  'mozo'),
+('user3', '$2y$10$yF1H7M9xCMi53uv8DRkLC.Q1BOEjB/E3YbEJq1DzMLPm5Ae1AtDKi', 'Charlie', 'Green', '1990-05-08',  'mozo');
+
+SELECT * FROM menu_items;
+select *  from users;
+DELETE FROM menu_items WHERE id = 5;
+

@@ -1,0 +1,232 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% desde arriba y centrado */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Ancho del modal */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Estilos para el modal */
+.modal {
+  display: none;
+  /* Ocultado por defecto */
+  position: fixed;
+  /* Fijo en la pantalla */
+  z-index: 1;
+  /* Por encima de otros elementos */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Ancho completo */
+  height: 100%;
+  /* Alto completo */
+  overflow: auto;
+  /* Agregar scroll si es necesario */
+  background-color: rgb(0, 0, 0);
+  /* Fondo negro */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Fondo negro con opacidad */
+}
+
+h1 {
+  margin: 0;
+}
+
+main {
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #333;
+  color: white;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+.create-user-btn-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.create-user-btn {
+  padding: 12px 20px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.create-user-btn:hover {
+  background-color: #45a049;
+}
+
+/* Estilos para el modal */
+#edit-menu-item-modal {
+  display: none;
+  /* El modal está oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fondo oscuro transparente */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* Asegura que el modal esté sobre otros elementos */
+}
+
+/* Contenedor del formulario del modal */
+#edit-menu-item-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  /* Asegura que si el contenido es muy largo, el modal pueda desplazarse */
+}
+
+/* Estilos para los campos del formulario */
+#edit-menu-item-form label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+}
+
+#edit-menu-item-form input,
+#edit-menu-item-form select,
+#edit-menu-item-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Estilo para el botón de guardar */
+#add-menu-item-form button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+#add-menu-item-form button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Estilos para el modal */
+#add-menu-item-modal {
+  display: none;
+  /* El modal está oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fondo oscuro transparente */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* Asegura que el modal esté sobre otros elementos */
+}
+
+/* Contenedor del formulario del modal */
+#add-menu-item-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  /* Asegura que si el contenido es muy largo, el modal pueda desplazarse */
+}
+
+/* Estilos para los campos del formulario */
+#add-menu-item-form label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+}
+
+#add-menu-item-form input,
+#add-menu-item-form select,
+#add-menu-item-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Estilo para el botón de guardar */
+#add-menu-item-form button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+#add-menu-item-form button[type="submit"]:hover {
+  background-color: #45a049;
+}

@@ -1,0 +1,73 @@
+.footer {
+  background-color: #2c2c2c; /* Fondo oscuro para un diseño moderno */
+  color: #e0e0e0; /* Color de texto claro para un buen contraste */
+  padding: 2rem 2rem 1rem 2rem; /* Más padding para mayor amplitud */
+  text-align: center;
+  border-top: 2px solid #444; /* Línea superior sutil para separación */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start; /* Alineación de los items al principio */
+  gap: 2rem; /* Espacio entre secciones */
+}
+
+.footer-section {
+  flex: 1; /* Ajusta el tamaño base de los elementos */
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #3b3b3b; /* Fondo de sección más claro para contraste */
+  border-radius: 8px; /* Bordes redondeados para suavidad */
+}
+
+.footer-section h4 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem; /* Tamaño de fuente de los títulos */
+  color: #ff6f61; /* Color de texto de los títulos */
+}
+
+.social-icons {
+  margin-top: 1.5rem;
+}
+
+.social-icons a {
+  color: #e0e0e0;
+  margin: 0 0.5rem; /* Espacio entre los íconos */
+  transition: transform 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.social-icons a:hover {
+  color: #ff6f61; /* Color de íconos al pasar el ratón */
+  transform: scale(1.2); /* Efecto de aumento al pasar el ratón */
+}
+
+.copyright {
+  margin-top: 2rem;
+  font-size: 0.9rem; /* Tamaño de fuente más pequeño para el copyright */
+}
+
+.copyright span {
+  font-weight: bold;
+  color: #ff6f61; /* Color de texto destacado para el nombre */
+}
+
+.copyright a {
+  color: #000000;
+  text-decoration: none;
+  margin-left: 0.5rem;
+  background-color: white;
+  border-radius: 50%;
+  padding: 0.2rem;
+}
+
+.copyright a:hover {
+  color: #ff6f61;
+  text-decoration: none;
+  margin-left: 0.5rem;
+}
