@@ -1,5 +1,0 @@
-para poder crear el superusuario e ingresar al panel de aministrador se debe ingresar a la pagina pages/admin/crearusuarioadmin.php
-una vez ingresado y configurado el script correctamente segun su base de datos podra ingresar 
-al panel administrador en la ubicacion de pages/admin/admin.php
-utilizando el usuario ¨admin¨ y la contraseña ¨admin¨
-
